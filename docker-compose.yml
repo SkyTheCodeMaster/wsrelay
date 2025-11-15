@@ -1,0 +1,12 @@
+services:
+  websocket_relay:
+    container_name: websocket-relay
+    image: ghcr.io/skythecodemaster/wsrelay:latest
+    restart: unless-stopped
+    ports:
+      - 8912:8912
+    volumes:
+      - /path/to/config/:/app/config/ # Your config file, example @ /src/config.example.toml
+    environment:
+      - PYTHONUNBUFFERED=1
+networks: {}
